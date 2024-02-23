@@ -2,7 +2,7 @@
 
 
 
-<div class="vidoe swiper-container" id="posts-container" style="padding-left:70px; padding-right: 70px; padding-bottom:30px; padding-top:70px;">
+<div class="vidoe swiper-container" id="posts-container" style="padding-left:70px; padding-right: 70px; padding-bottom:30px;">
     
   <iframe class="card-video" width="380" height="230" src="https://www.youtube.com/embed/2Y77KEYuw_g" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
   <iframe class="card-video" width="380" height="230" src="https://www.youtube.com/embed/6i5_sLY_pWc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>

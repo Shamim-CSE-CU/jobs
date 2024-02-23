@@ -151,39 +151,43 @@ class UserController extends Controller
 
     public function filter_by_category($id){
 
-        $postObj = new Post();
-        $posts = $postObj->join('categories','categories.id', '=', 'posts.category_id')
-        ->select('posts.*', 'categories.name as category_name')
-        ->where('posts.status', 1)
-        ->where('posts.category_id', $id)
-        ->orderby('posts.id','desc')
+        $serviceObj = new Services();
+        $services = $serviceObj->join('categories', 'categories.id', '=', 'services.category')
+        ->join('users','users.id', '=', 'services.user_id')
+        ->select('services.*', 'categories.name as category_name','users.name as user_name','users.photo as user_photo')
+        ->where('services.category', $id)
+        ->orderby('services.id','desc')
         ->get();
 
+        
+        
         // $posts = Post::all()->where('status', 1)->sortByDesc('created_at');
 
         $categories = Category::all();
 
        
-        return view('user.filter_by_category', compact('posts','categories'));
+        return view('user.filter_by_category', compact('services','categories'));
 
     }
 
     public function filter_by_project($id){
 
-        $postObj = new Post();
-        $posts = $postObj->join('categories','categories.id', '=', 'posts.category_id')
-        ->select('posts.*', 'categories.name as category_name')
-        ->where('posts.status', 1)
-        ->where('posts.category_id', $id)
-        ->orderby('posts.id','desc')
+        $serviceObj = new Services();
+        $services = $serviceObj->join('categories', 'categories.id', '=', 'services.category')
+        ->join('users','users.id', '=', 'services.user_id')
+        ->select('services.*', 'categories.name as category_name','users.name as user_name','users.photo as user_photo')
+        ->where('services.category', $id)
+        ->orderby('services.id','desc')
         ->get();
 
+        
+        
         // $posts = Post::all()->where('status', 1)->sortByDesc('created_at');
 
         $categories = Category::all();
 
        
-        return view('user.filter_by_project', compact('posts','categories'));
+        return view('user.filter_by_project', compact('services','categories'));
 
     }
 

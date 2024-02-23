@@ -44,16 +44,11 @@
           
 
           <div class="mt-4"> 
-              <form id="filter-listing-form-F0SGh" action="https://halaljobs.net/services/" class="form-search filter-listing-form " method="GET">
               
-                  <div class="row row-20 align-items-center list-fileds " style="display: flex;">
+              
+                  <div class="row row-20 align-items-center list-fileds " style="display: flex; justify-content:center;">
 
-                    <div class="item-column col-12 col-md-5 col-lg-5  has-icon ">
-                            <div class="input-group">
-                              <input type="text" class="form-control bg-light border-1 small" placeholder="কি সার্ভিস খুঁজছেন?"
-                                  aria-label="Search" aria-describedby="basic-addon2">
-                            </div>
-                    </div>
+                    
                         {{-- <div class="item-column col-12 col-md-5 col-lg-5  has-icon ">                      
                           <div class="form-group-inner inner has-icon">
                               <i class="ti-search"></i>
@@ -64,43 +59,32 @@
                               <div class="form-group-category tax-select-field">
                                     <div class="form-group-inner inner ">
                                           <select name="filter-category" class="form-control select2-hidden-accessible" id="F0SGh_category" data-placeholder="ক্যাটাগরি" tabindex="-1" aria-hidden="true">
-                                                <option value="">ক্যাটাগরি</option>
-                                                <option class="level-0" value="11111">অডিও ও ভিডিও</option>
-                                                <option class="level-0" value="11113">অন্যান্য</option>
-                                                <option class="level-0" value="11103">ইন্সটলেশন ও সার্ভিসিং</option>
-                                                <option class="level-0" value="11099">কাউন্সিলিং ও পরামর্শ</option>
-                                                <option class="level-0" value="11100">খাদ্য প্রস্তুতকরণ</option>
-                                                <option class="level-0" value="11217">গার্মেন্টস ও পোষাক প্রস্তুতকরণ</option>
-                                                <option class="level-0" value="11102">গৃহস্থালীয় সার্ভিসিং</option>
-                                                <option class="level-0" value="11108">গ্রাফিক ও ডিজাইন</option>
-                                                <option class="level-0" value="11105">চিকিৎসা</option>
-                                                <option class="level-0" value="11106">টেকনিক্যাল ও ইঞ্জিনিয়ারিং</option>
-                                                <option class="level-0" value="11112">ডাটা মেনেজমেন্ট</option>
-                                                <option class="level-0" value="11109">ডেভেলপমেন্ট ও আইটি</option>
-                                                <option class="level-0" value="11101">পন্য প্রস্তুতকরণ</option>
-                                                <option class="level-0" value="11104">পরিবহন ও ড্রাইভিং</option>
-                                                <option class="level-0" value="11311">প্রশিক্ষণ</option>
-                                                <option class="level-0" value="11110">মার্কেটিং</option>
-                                                <option class="level-0" value="11098">শিক্ষা</option>
-                                                <option class="level-0" value="11107">সাহিত্য ও অনুবাদ</option>
+
+                                            <option value="">ক্যাটাগরি</option>
+                                                @foreach ($categories as $category)
+                                                <option class="level-0" value="{{$category->id}}">{{$category->name}}</option>
+                                               
+                                                @endforeach
+                                                
+                                                
                                           </select>
                                     </div>
                               </div>
                         </div>
                         <div class="col-12 col-md-2 form-group-search " style="display: flex; justify-content: center;
                         border-radius: 20px; background-color:rgb(248, 250, 247); border:1px solid rgb(81, 175, 4); transition: background-color 0.5ms;">
-                            <div class="d-flex align-items-center justify-content-end">
-                            <button class="btn-submit btn w-100 btn-theme btn-inverse" type="submit">
+                          <div class="d-flex align-items-center justify-content-end">
+                            <button class="btn-submit btn w-100 btn-theme btn-inverse" type="" onclick="searchService()">
                             সার্ভিস খুঁজুন<i class="flaticon-right-up next"></i> </button>
-                            </div>
-                            <div class="input-group-append">
+                          </div>
+                          <div class="input-group-append">
                               <button class="btn" type="button">
                                   <i class="fas fa-search fa-sm"></i>
                               </button>
                           </div>
                         </div>
                   </div>
-              </form> 
+              
             </div>
           </div>
 
@@ -174,153 +158,4 @@
 
 
 
-  <style>
-
-nav{
-    min-height: 10vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.logo{
-    color: green;
-    font-size: 1.2rem;
-    overflow: hidden;
-}
-.hero{
-    height: 101vh;
-    margin: 0 12%;
-}
-
-.hero img{
-    width: 100%;
-    height: 35%;
-    object-fit: cover;
-}
-
-.group{
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%,-50%);
-    color: rgb(233, 22, 22);
-    display: flex;
-    flex-direction: column;
-}
-
-.group-text{
-    display: flex;
-    font-size: 1.1rem;
-    justify-content: center
-}
-.group-text span{
-    padding: 0 .5rem;
-    text-shadow:54px 100px 80px rgba(0, 0, 0, 0.07);
-    display: block;
-    color: rgb(30, 27, 32);
-}
-
-.group-text .class5{
-  font-size: 0.7rem;
-}
-
-.group-text h2{
-    overflow: hidden;
-}
-.group-text h2, .h2{
-  font-size: 32px;
-}
-
-
-
-.search #search-query{
-    width: 1041px;
-    height: 97px;
-    margin: 1rem;
-    padding: .5rem 2rem;
-    background-color: rgba(236, 236, 243, 0.795);
-    border: none;
-    font-size: inherit;
-    font-weight: 400;
-    font-size: 1rem;
-    
-}
-
-  </style>
-
-
-
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/gsap.min.js"
-  integrity="sha512-cOH8ndwGgPo+K7pTvMrqYbmI8u8k6Sho3js0gOqVWTmQMlLIi6TbqGWRTpf1ga8ci9H3iPsvDLr4X7xwhC/+DQ==" crossorigin="anonymous" 
-  referrerpolicy="no-referrer"></script>
-
-
-
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-  <script>
-    function predict_image() {
-        
-
-            window.location.href =
-                'http://localhost/pd/transorflowModel.html';
-
-    }
-  </script>
-
-
-  <Script>
-const tl = gsap.timeline({
-    default: {duration: .75, ease: "Power3.easeOut"} //Set default timeline
-})
-
-tl.fromTo(".annimate-img",
- {scale: 1.4, 
-    borderRadius: "0rem"},
-
- {scale: 1,
-     borderRadius: "1rem", 
-     delay: 0.25,
-    duration: 5,
-    ease: "elastic.out(2.5,2.5)"
-    })
-
-    tl.fromTo(".class1", {x: "100%" , opacity: .5}, {x:0, opacity: 1}, "<30%")
-    tl.fromTo(".class2", {y: "100%" , opacity: .5}, {y:0, opacity: 1}, "<30%")
-    tl.fromTo(".class3", {x: "-100%" , opacity: .5}, {x:0, opacity: 1}, "<30%")
-    tl.fromTo(".class4", {x: "100%" , opacity: .5}, {x:0, opacity: 1}, "<30%")
-    tl.fromTo(".class5", {x: "100%" , opacity: .5}, {x:0, opacity: 1}, "<30%")
-    tl.fromTo(".class6", {y: "-100%" , opacity: .5}, {y:0, opacity: 1}, "<30%")
-    tl.fromTo(".class7", {y: "-100%" , opacity: .5}, {y:0, opacity: 1}, "<30%")
-    tl.fromTo(".btn", {y: 20 , opacity: 0}, {y:0, opacity: 1}, "<") //,borderRadius: "1rem"
-
-    const logo = document.querySelector(".logo")
-    const letter = logo.textContent.split("")
-
-    console.log(letter)
-    logo.textContent = ""
-
-    letter.forEach((letter) =>{
-        logo.innerHTML += `<span class="letter">${letter}</span>`//Backtick or Grave accent
-
-    })
-
-    gsap.set(".letter", {display: "inline-block"})
-    gsap.fromTo(".letter",{y: "100%"}, {y:0, delay:1, stagger: .05, ease: "back.in"}) //, repeat: -1
-
-
-      const logo_name = document.querySelector(".logo_name")
-      const logo_letter = logo_name.textContent.split("")
-
-      console.log(logo_letter)
-      logo_name.textContent = ""
-
-      logo_letter.forEach((logo_letter) =>{
-          logo_name.innerHTML += `<span class="logo_letter">${logo_letter}</span>`//Backtick or Grave accent
-
-      })
-
-      gsap.set(".logo_letter", {display: "inline-block"})
-      gsap.fromTo(".logo_letter",{y: "100%"}, {y:0, delay:1, stagger: .05, ease: "back.in"}) //, repeat: -1
-
-  </Script>
+ 

@@ -6,12 +6,44 @@
 
 @section('mainSection')
 
-    <div class="py-4"></div>
-    <section class="section">
+    
+    <section class="section" style="margin-top:80px">
         <div class="container">
+
+
+
+            
+
+
+
+
             <div class="row justify-content-center">
                 <div class=" col-lg-8   mb-5 mb-lg-0">
-                    <article>
+
+                    <article class="card  mb-4" style="height: 300px;">
+                        <!-- Display the post content -->
+        
+                        <!-- Display the post content -->
+                        <div style="width: 100%">
+                           
+                                    <div class="card-body card_body_project">
+                                        <div class="grid_item_1" >
+                                         
+                                        </div>   
+        
+                                        <div class="grid_item_2">
+                                                
+                                        </div>
+                                                                                                  
+                                    </div>
+                        </div>
+        
+                        
+                    </article>
+
+
+                    <article style="margin-left: 15px;
+                    margin-right: 15px;">
                     <div class="post-slider mb-4">
                         <img src="{{asset('post_thumbnails/'.$services->thumbnail)}}" class="card-img" alt="post-thumb">
                     </div>

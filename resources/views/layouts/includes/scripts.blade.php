@@ -36,6 +36,20 @@
  <!-- Toastr Script -->
 
 
+
+
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/gsap.min.js"
+ integrity="sha512-cOH8ndwGgPo+K7pTvMrqYbmI8u8k6Sho3js0gOqVWTmQMlLIi6TbqGWRTpf1ga8ci9H3iPsvDLr4X7xwhC/+DQ==" crossorigin="anonymous" 
+ referrerpolicy="no-referrer"></script>
+ 
+ 
+ 
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+
+
+
+
  <!-- Swiper JS -->
 <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 
@@ -494,40 +508,94 @@ function updateRatingData(data) {
 
 
 
-{{-- <script>
-    function loadPosts(page) {
-        $.ajax({
-            url: "{{ route('posts.paginate') }}",
-            data: { page: page },
-            success: function(response) {
-                console.log("hello");
-                $('#posts-container').html(response);
-            }
-        });
+
+
+
+
+
+
+
+<Script>
+const tl = gsap.timeline({
+  default: {duration: .75, ease: "Power3.easeOut"} //Set default timeline
+})
+
+tl.fromTo(".annimate-img",
+{scale: 1.4, 
+  borderRadius: "0rem"},
+
+{scale: 1,
+   borderRadius: "1rem", 
+   delay: 0.25,
+  duration: 5,
+  ease: "elastic.out(2.5,2.5)"
+  })
+
+  tl.fromTo(".class1", {x: "100%" , opacity: .5}, {x:0, opacity: 1}, "<30%")
+  tl.fromTo(".class2", {y: "100%" , opacity: .5}, {y:0, opacity: 1}, "<30%")
+  tl.fromTo(".class3", {x: "-100%" , opacity: .5}, {x:0, opacity: 1}, "<30%")
+  tl.fromTo(".class4", {x: "100%" , opacity: .5}, {x:0, opacity: 1}, "<30%")
+  tl.fromTo(".class5", {x: "100%" , opacity: .5}, {x:0, opacity: 1}, "<30%")
+  tl.fromTo(".class6", {y: "-100%" , opacity: .5}, {y:0, opacity: 1}, "<30%")
+  tl.fromTo(".class7", {y: "-100%" , opacity: .5}, {y:0, opacity: 1}, "<30%")
+  tl.fromTo(".btn", {y: 20 , opacity: 0}, {y:0, opacity: 1}, "<") //,borderRadius: "1rem"
+
+  const logo = document.querySelector(".logo")
+  const letter = logo.textContent.split("")
+
+  console.log(letter)
+  logo.textContent = ""
+
+  letter.forEach((letter) =>{
+      logo.innerHTML += `<span class="letter">${letter}</span>`//Backtick or Grave accent
+
+  })
+
+  gsap.set(".letter", {display: "inline-block"})
+  gsap.fromTo(".letter",{y: "100%"}, {y:0, delay:1, stagger: .05, ease: "back.in"}) //, repeat: -1
+
+
+    const logo_name = document.querySelector(".logo_name")
+    const logo_letter = logo_name.textContent.split("")
+
+    console.log(logo_letter)
+    logo_name.textContent = ""
+
+    logo_letter.forEach((logo_letter) =>{
+        logo_name.innerHTML += `<span class="logo_letter">${logo_letter}</span>`//Backtick or Grave accent
+
+    })
+
+    gsap.set(".logo_letter", {display: "inline-block"})
+    gsap.fromTo(".logo_letter",{y: "100%"}, {y:0, delay:1, stagger: .05, ease: "back.in"}) //, repeat: -1
+
+</Script>
+
+
+
+
+
+
+<script>
+
+function searchService() {
+    // Get the selected option value
+    var categoryId = document.getElementById('F0SGh_category').value;
+    
+    // Redirect or perform any action based on the selected option
+    // For example, redirect to a specific URL with the selected category ID
+    if (categoryId) {
+        
+        window.location.href = "/posts/category/" + categoryId;
+
+    } else {
+        // Handle case where no category is selected
+        alert("Please select a category");
     }
-
-    $(document).ready(function() {
-        // Load the initial posts content
-        loadPosts(1);
-
-        // Handle pagination link clicks
-        $(document).on('click', '#posts-container .pagination a', function(e) {
-            e.preventDefault();
-            var page = $(this).attr('href').split('page=')[1];
-            loadPosts(page);
-        });
-    });
-</script> --}}
+}
 
 
-
-
-
-
-
-
-
-
+</Script>
 
 
 
