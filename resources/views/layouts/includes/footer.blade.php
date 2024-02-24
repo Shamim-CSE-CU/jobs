@@ -4,13 +4,13 @@
 
 <div class="vidoe swiper-container" id="posts-container" style="padding-left:70px; padding-right: 70px; padding-bottom:30px;">
     
-  <iframe class="card-video" width="380" height="230" src="https://www.youtube.com/embed/2Y77KEYuw_g" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-  <iframe class="card-video" width="380" height="230" src="https://www.youtube.com/embed/6i5_sLY_pWc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-  <iframe class="card-video" width="380" height="230" src="https://www.youtube.com/embed/xvvHUHpfQbw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-  <iframe class="card-video" width="380" height="230" src="https://www.youtube.com/embed/xvvHUHpfQbw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-  <iframe class="card-video" width="380" height="230" src="https://www.youtube.com/embed/2Y77KEYuw_g" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-  <iframe class="card-video" width="380" height="230" src="https://www.youtube.com/embed/6i5_sLY_pWc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-  <iframe class="card-video" width="380" height="230" src="https://www.youtube.com/embed/xvvHUHpfQbw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+    <iframe class="card-video" width="380" height="230" src="https://www.youtube.com/embed/uUhZ0ZMB6yY?si=SO5qK2XkTKksFjho" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+    <iframe class="card-video" width="380" height="230" src="https://www.youtube.com/embed/Do_rjLC60y4?si=PQHqJ31C59_T1Jj7" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+    <iframe class="card-video" width="380" height="230" src="https://www.youtube.com/embed/1eXT35O6Q_o?si=jbFnDxIIDOl8S4uS" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+    <iframe class="card-video" width="380" height="230" src="https://www.youtube.com/embed/zZ_VWDRq4DA?si=vAf_yHUpuWsS-sWt" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+    <iframe class="card-video" width="380" height="230" src="https://www.youtube.com/embed/VQeVAJnhD5M?si=TWID9tWyjn9lyLIt" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+    <iframe class="card-video" width="380" height="230" src="https://www.youtube.com/embed/owkVewt1y9Y?si=rngYXsCUFD2B4g4o" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+    <iframe class="card-video" width="380" height="230" src="https://www.youtube.com/embed/VL4HF2vXze8?si=LcRM9pyPY3yWUb1f" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
       
 </div>
 
@@ -34,7 +34,7 @@
             {{-- <a href="index.html"><img class="img-fluid" width="100px" src="{{asset('usr_assets/images/logo.png')}}" alt=""></a> --}}
             <div class="container my-auto">
                 <div class="copyright text-center my-auto">
-                    <span>Copyright &copy; 2023</span>
+                    <span>Copyright &copy; 2024</span>
                 </div>
             </div>
         </div>

@@ -115,14 +115,11 @@ Route::group(['middleware' => 'admin'], function() {
     Route::resource('/admin/post', PostController::class, [
         'only' => ['index'] // Or any other options you want to specify
     ]);
-    Route::resource('/admin/post', PostController::class, [
-        'only' => ['store'] 
-    ]);
+    
     Route::put('/admin/post/{id}', [PostController::class, 'update'])->name('post.update');
 
-    Route::resource('/admin/post', PostController::class, [
-        'only' => ['destroy'] 
-    ]);
+    Route::delete('/admin/post/{id}', [PostController::class, 'destroy'])->name('post.destroy');
+
     
     
 

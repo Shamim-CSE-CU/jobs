@@ -39,6 +39,7 @@ class UserController extends Controller
         $services = $serviceObj->join('categories', 'categories.id', '=', 'services.category_id')
         ->join('users','users.id', '=', 'services.user_id')
         ->select('services.*', 'categories.name as category_name','users.name as user_name','users.photo as user_photo')
+        ->where('services.status','1')
         ->orderBy('services.id', 'desc')
         ->get();
 
@@ -274,8 +275,6 @@ class UserController extends Controller
            Services::create($data);
            return redirect()->back()->with('success','Post create successfully!');
         
-        
-        return view('service_create.create_service');
     }
 
 

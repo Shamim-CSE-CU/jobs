@@ -43,18 +43,56 @@ class PostController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
-    {
+    // public function store(Request $request)
+    // {
+    //     $request->validate([
+    //         'title'=>'required',
+    //         'category_id' => 'required',
+    //         'description' => 'required',
+    
+    //        ]);
+    //        $data = [
+    //         'title' => $request->title,
+    //         'category_id' => $request->category_id,
+    //         'description' => $request->description,
+    //         'status' => $request->status,
+    //        ];
+    //        if($request->hasfile('thumbnail')){
+    //         $file = $request->file('thumbnail');
+    //         $extension = $file->getClientOriginalExtension();
+    //         $filename = time() . '.' . $extension;
+    //         // $file ->move(public_path('post_thumbnails'),$filename);
+    //         // Resize image
+    //         $thumbnail = Image::make($file);
+    //         $thumbnail->resize(600,360)->save(public_path('post_thumbnails/'.$filename));
+            
+    //         $data['thumbnail'] = $filename;
+    //        }
+
+    //        Services::create($data);
+    //        return redirect()->back()->with('success','Post create successfully!');
+    // }
+
+
+    
+    public function service_create(Request $request){
+
+
         $request->validate([
             'title'=>'required',
             'category_id' => 'required',
             'description' => 'required',
+            'Location'    => 'required',
+            'payment'     => 'required',
     
            ]);
            $data = [
+            'user_id' => auth()->user()->id,
             'title' => $request->title,
             'category_id' => $request->category_id,
             'description' => $request->description,
+            'Location'    => $request->Location,
+            'payment'    => $request->payment,
             'status' => $request->status,
            ];
            if($request->hasfile('thumbnail')){
@@ -69,8 +107,11 @@ class PostController extends Controller
             $data['thumbnail'] = $filename;
            }
 
-           Post::create($data);
+           Services::create($data);
            return redirect()->back()->with('success','Post create successfully!');
+        
+        
+        return view('service_create.create_service');
     }
 
     /**
@@ -105,35 +146,35 @@ class PostController extends Controller
     public function update(Request $request, $id)
     {
         $request->validate([
-            'title'=>'required',
+            // 'title'=>'required',
             'category_id' => 'required',
-            'description' => 'required',
+            // 'description' => 'required',
     
            ]);
            $data = [
-            'title' => $request->title,
+            // 'title' => $request->title,
             'category_id' => $request->category_id,
-            'description' => $request->description,
+            // 'description' => $request->description,
             'status' => $request->status,
            ];
 
-           if($request->hasfile('thumbnail')){
-            if($request->old_thumb){
-                File::delete(public_path('post_thumbnails/' .$request->old_thumb));
-            }
-            $file = $request->file('thumbnail');
-            $extension = $file->getClientOriginalExtension();
-            $filename = time() . '.' . $extension;
-            // $file ->move(public_path('post_thumbnails'),$filename);
+        //    if($request->hasfile('thumbnail')){
+        //     if($request->old_thumb){
+        //         File::delete(public_path('post_thumbnails/' .$request->old_thumb));
+        //     }
+        //     $file = $request->file('thumbnail');
+        //     $extension = $file->getClientOriginalExtension();
+        //     $filename = time() . '.' . $extension;
+        //     // $file ->move(public_path('post_thumbnails'),$filename);
 
-            // Resize image
-            $thumbnail = Image::make($file);
-            $thumbnail->resize(600,360)->save(public_path('post_thumbnails/'.$filename));
+        //     // Resize image
+        //     $thumbnail = Image::make($file);
+        //     $thumbnail->resize(600,360)->save(public_path('post_thumbnails/'.$filename));
             
-            $data['thumbnail'] = $filename;
-           }
+        //     $data['thumbnail'] = $filename;
+        //    }
 
-           Post::where('id',$id)->update($data);
+           Services::where('id',$id)->update($data);
            return redirect()->back()->with('success','Post create successfully!');
     }
 
@@ -145,7 +186,7 @@ class PostController extends Controller
      */
     public function destroy($id)
     {
-        $post = Post::find($id);
+        $post = Services::find($id);
         if($post->thumbnail){
             File::delete(public_path('post_thumbnails/' . $post->thumbnail));
         }
