@@ -95,9 +95,16 @@ class UserController extends Controller
     $to_email = $request->input('recipient');
     $subject = $request->input('subject'); // Customize the subject as needed
     $body = $request->input('sms');
-    $headers = ['From' => 'smimm432@gmail.com'];
+    $headers = ['From' => 'mdshamimcsecu@gmail.com'];
+
+    
 
     try {
+        $notify = [
+            'message' => 'Email send successfully',
+            'alert-type' => 'success'
+           ];
+
         // Use Laravel's built-in mail functionality
         Mail::raw($body, function($message) use ($to_email, $subject, $headers) {
             
@@ -106,9 +113,18 @@ class UserController extends Controller
                     ->from($headers['From']);
         });
 
-        return redirect()->back()->with('success', 'SMS successfully sent to ' . $to_email);
+        return redirect()->back()->with($notify);
+
+        // return redirect()->back()->with('success', 'SMS successfully sent to ' . $to_email);
     } catch (\Exception $e) {
-        return redirect()->back()->with('error', 'Failed to send SMS: ' . $e->getMessage());
+
+        $notify = [
+            'message' => 'Email not successfully send',
+            'alert-type' => 'error'
+           ];
+
+           return redirect()->back()->with($notify);
+        // return redirect()->back()->with('error', 'Failed to send SMS: ' . $e->getMessage());
     }
 }
 
@@ -125,7 +141,8 @@ class UserController extends Controller
 
         $serviceObj = new Services();
         $services = $serviceObj->join('categories', 'categories.id', '=', 'services.category')
-        ->select('services.*', 'categories.name as category_name')
+        ->join('users','users.id', '=', 'services.user_id')
+        ->select('services.*', 'categories.name as category_name','users.name as user_name','users.photo as user_photo')
         ->where('services.id', $id)
         ->first();
 

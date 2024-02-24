@@ -179,7 +179,7 @@
                                         {{-- <i class="fa-regular fa-heart" style="color: #ccafaf;padding-left: 2px; "></i> --}}
                                         {{-- <i class="fa-thin fa-heart" style="color: #302f2f;padding-left: 2px;"></i> --}}
                                         {{-- <i class="fa-sharp fa-thin fa-heart" style="color: #302f2f;padding-left: 2px;"></i> --}}
-                                    </div>
+                                     </div>
                                            
                                         
                                             <a href="{{route('single_post_view', $service->id) }}">

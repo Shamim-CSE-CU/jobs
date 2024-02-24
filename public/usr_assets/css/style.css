@@ -133,6 +133,13 @@ h6,
 
 /* banner part start */
 
+.fas.fa-heart:hover {
+  color: red; /* Change color on hover */
+}
+
+
+
+
 .banner {
   background-image: url(../images/backgrounds/banner-bg.svg);
   background-position: bottom center;

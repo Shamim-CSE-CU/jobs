@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="{{asset('usr_assets/plugins/bootstrap/bootstrap.min.css')}}">
     <link rel="stylesheet" href="{{asset('usr_assets/plugins/themify-icons/themify-icons.css')}}">
     <link rel="stylesheet" href="{{asset('usr_assets/plugins/slick/slick.css')}}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   
     <!-- Main Stylesheet -->
     <link rel="stylesheet" href="{{asset('usr_assets/css/style.css')}}" media="screen">
@@ -39,6 +40,11 @@
 
     <!-- Swiper CSS -->
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+
+
+    <link rel="stylesheet" href="https://unpkg.com/ionicons@5.0.1/dist/css/ionicons.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/5.0.1/css/ionicons.min.css">
+    
   
     <meta property="og:title" content="JOBS | HALALJOBS" />
     <meta property="og:description" content="This is meta description" />

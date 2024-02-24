@@ -6,16 +6,82 @@
 
 @section('mainSection')
 
-    
-    <section class="section" style="margin-top:80px">
-        <div class="container">
 
 
 
+    <div class="container" style="margin-top: 120px;display: grid;
+    grid-template-columns: 75% 22% 3%;">
+        <div style="">
+            <a href="{{url('/')}}" style="display: inherit;">
+                <h6 style="color: rgb(48 102 37); font-size:17px;" >{{$services->category_name}}/Service/{{$services->title}}</h6>  
+            </a>
+        </div>
+        <div style="display: flex;justify-content:space-between">
+            <div style="display: flex;">
+                <div  style="width:30px;
+                height:30px;
+                background-color: rgb(255, 255, 255); 
+                border-radius: 50%; 
+                border:1px solid rgb(222 231 222);
+                padding: 5px;">
+                
+                    <i class="fas fa-heart" style="color: #ccafaf;padding-left: 2px; cursor: pointer; cursor: pointer; "></i>
+   
+                </div>  
+                <div style="margin-left: 5px;
+                padding-top: 2px;">
+                    <span>Share</span> 
+                </div>
+            </div>
+            <div style="display: flex;">
+                <div  style="width:30px;
+                height:30px;
+                background-color: rgb(255, 255, 255); 
+                border-radius: 50%; 
+                border:1px solid rgb(222 231 222);
+                padding: 5px;">
+                
+                    {{-- <i class="fas fa-heart" style="color: #ccafaf;padding-left: 2px; cursor: pointer; "></i> --}}
+                    <i class="fas fa-share"></i>
+
+   
+                </div>  
+                <div style="margin-left: 5px;
+                padding-top: 2px;">
+                    <span>Save</span> 
+                </div>
+            </div>
+            <div style="display: flex;">
+                <div  style="width:30px;
+                height:30px;
+                background-color: rgb(255, 255, 255); 
+                border-radius: 50%; 
+                border:1px solid rgb(222 231 222);
+                padding: 5px;">
+                
+                    {{-- <i class="fas fa-heart" style="color: #ccafaf;padding-left: 2px; cursor: pointer; "></i> --}}
+                    <i class="fas fa-exclamation-triangle"></i>
+
+   
+                </div>  
+                
+            </div>
             
+            
+              
+        </div>
+    </div>
+  
+
+
+  
 
 
 
+
+    
+    <section class="section">
+        <div class="container">
 
             <div class="row justify-content-center">
                 <div class=" col-lg-8   mb-5 mb-lg-0">
@@ -28,10 +94,63 @@
                            
                                     <div class="card-body card_body_project">
                                         <div class="grid_item_1" >
-                                         
-                                        </div>   
+                                        
+                                            <a class="" href="#" role="button">
+                                                
+                                                    {{-- @auth --}}
+                                                        @if ($services->user_photo)
+                                                            <img src="{{ asset('images/user_photos/' . $services->user_photo) }}" alt="" class="rounded-circle" style="height: 60px">
+                                                        @else
+                                                            <img src="{{ asset('images/user_photos/user.png') }}" alt="" class="rounded-circle" style="height: 60px">
+                                                        @endif
+                                                                                                                         
+                                            </a>                                       
+                                      
+                                        </div>     
         
                                         <div class="grid_item_2">
+
+                                            <div class="reaction" style="position: absolute;
+                                        width:30px;
+                                        height:30px;
+                                        top: 10px; 
+                                        right: 10px; 
+                                        background-color: rgb(255, 255, 255); 
+                                        border-radius: 50%; 
+                                        border:1px solid rgb(222 231 222);
+                                        padding: 5px;">
+                                            <i class="fas fa-heart" style="color: #ccafaf;padding-left: 2px; cursor: pointer; "></i>
+                                            
+                                         </div>
+                                               
+                                            
+                                                <a href="{{route('single_post_view', $services->id) }}">
+                                                <h5 class="post-subject" >{{$services->title}}</h4>
+                                                </a>
+                                                <h5 class="mb-3" ><a class="post-title" style="background: white;
+                                                color:rgb(142, 145, 145);
+                                                font-size:20px;
+                                                    border-radius: 7px;
+                                                    padding: 5px;" >{{ $services->user_name }}</a></h5>
+                                                    <div class="grid_item_2_bottom">
+                                                        <div class="grid_item_2_bottom_item_1">                     
+                                                            <li class="list-inline-item" style="font-size: 13px;">
+                                                                <i class="ti-calendar" style="margin-right: 5px;"></i>{{date('d M Y', strtotime($services->created_at))}}
+                                                            </li>
+                                                        </div>
+                                                        <div class="grid_item_2_bottom_item_2">
+                                                            <li class="list-inline-item">
+                                                                <div style="overflow: hidden; text-overflow: ellipsis; ">
+                                                                    <b class="" style="font-size: 10px;"><i class="fas fa-map-marker-alt location-icon" style="font-size: 16px; margin-right:5px; color:rgb(194 199 215);"></i>{{ $services->Location }}</b>
+                                                                </div>
+                                                            </li>
+                                                        </div>
+                                                        <div class="grid_item_2_bottom_item_3">
+                                                            <li class="list-inline-item">
+                                                                <div class="project-proposals-count with-icon"><i class="flaticon-rocket-1"></i> 5 Proposals</div>
+                                                            </li>
+                                                        </div>
+                                                    </div>
                                                 
                                         </div>
                                                                                                   
