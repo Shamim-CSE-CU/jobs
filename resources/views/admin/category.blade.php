@@ -2,12 +2,12 @@
 
 @section('title')
 
-Disease
+Category
     
 @endsection
 
 @php
-    $page= 'Disease';
+    $page= 'Category';
 @endphp
 
 @section('mainpart')

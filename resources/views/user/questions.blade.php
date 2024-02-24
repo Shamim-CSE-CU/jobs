@@ -12,31 +12,14 @@
     <div class="container">
       <div class="row justify-content-center">
          
-        
-
-
-
         <aside class="col-lg-12 sidebar-home">
           <!-- Search -->
-          
-        
-          
-          
           <!-- image -->
           <div class="capcha_image">
             <img src="{{asset('usr_assets/images/Question_jiggasha.png')}}" class="img-fluid w-10">
           </div>
       
-      
           
-        
-          
-          <!-- Search -->
-          
-          
-        
-         
-          <!-- authors -->
           <div class="widget widget-author">
             
             <div class="media align-items-center">
@@ -136,10 +119,8 @@
                 <span style="display: none">যে কেউ একাউন্ট তৈরি করে সার্ভিস বিক্রি করতে পারবে। তবে মেয়েদের বেপর্দা ছবি আপলোড করা যাবে না।</span>
               </div>
             </div>
-          </div>
-         
+          </div>       
         </aside>
-    
       </div>
     </div>
   </section>

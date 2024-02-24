@@ -133,9 +133,9 @@ h6,
 
 /* banner part start */
 
-.fas.fa-heart:hover {
-  color: red; /* Change color on hover */
-}
+
+
+
 
 
 
@@ -362,13 +362,78 @@ h5,
 
 
 #posts-container{
-  height: 450px; display:flex; overflow-x:scroll;
+  height: 450px; display:flex; overflow-x:auto;
 }
+
+
+/* Define CSS animation */
+@keyframes fadeInLeft {
+  from {
+      opacity: 0;
+      transform: translateX(-50px);
+  }
+  to {
+      opacity: 1;
+      transform: translateX(0);
+  }
+}
+
+
+.icon-container {
+  position: relative;
+  width: 30px;
+  height: 30px;
+  background-color: rgb(255, 255, 255); 
+  border-radius: 50%; 
+  border: 1px solid rgb(222, 231, 222);
+  padding: 5px;
+}
+
+
+
+.icon-container {
+  position: relative;
+  width: 30px;
+  height: 30px;
+  background-color: rgb(255, 255, 255); 
+  border-radius: 50%; 
+  border: 1px solid rgb(222, 231, 222);
+  padding: 5px;
+}
+
+.social-icons {
+  position: absolute;
+  top: 40px; /* Adjust the distance from the icon container */
+  left: -50px; /* Adjust the position of the social icons */
+  display: none;
+}
+
+.icon-container:hover .social-icons, .social-icons:hover {
+  display: flex;
+}
+
+.social-icons i {
+  margin-right: 5px;
+  cursor: pointer;
+}
+
+.fas.fa-heart{
+  cursor: pointer;
+}
+
+.fas.fa-heart:hover {
+  color: rgb(63, 170, 36); /* Change color on hover */
+}
+.fas.fa-share:hover {
+  color: rgb(67, 173, 40); /* Change color on hover */
+}
+
+
 
 .card {
   
   
-  
+  display: inline-block;
   margin-right:15px;
   margin-left: 15px;
   
@@ -379,6 +444,7 @@ h5,
   padding-bottom: 30px
   
 }
+
 
 .card_service{
   width: 30.5%;
@@ -601,7 +667,7 @@ input,
     }
     .footer-border {
       height: 100px;
-      position: absolute;
+      
       top: -75px;
       width: 100%;
       stroke: #4e73df;

@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @php
-    $page= 'Disease';
+    $page= 'Service';
 @endphp
 
 @section('mainSection')
@@ -25,30 +25,34 @@
                 border:1px solid rgb(222 231 222);
                 padding: 5px;">
                 
-                    <i class="fas fa-heart" style="color: #ccafaf;padding-left: 2px; cursor: pointer; cursor: pointer; "></i>
-   
-                </div>  
-                <div style="margin-left: 5px;
-                padding-top: 2px;">
-                    <span>Share</span> 
-                </div>
-            </div>
-            <div style="display: flex;">
-                <div  style="width:30px;
-                height:30px;
-                background-color: rgb(255, 255, 255); 
-                border-radius: 50%; 
-                border:1px solid rgb(222 231 222);
-                padding: 5px;">
-                
-                    {{-- <i class="fas fa-heart" style="color: #ccafaf;padding-left: 2px; cursor: pointer; "></i> --}}
-                    <i class="fas fa-share"></i>
-
+                    <i class="fas fa-heart" style="color: #ccafaf;padding-left: 2px; cursor: pointer;"></i>
    
                 </div>  
                 <div style="margin-left: 5px;
                 padding-top: 2px;">
                     <span>Save</span> 
+                </div>
+            </div>
+            <div style="display: flex;" id="social-icons-container">
+                <div class="icon-container">
+
+
+                    <a data-toggle="modal" data-target="#social_media_Model"><b><i class="fas fa-share"></i></b></a>
+
+
+                    
+                    <div class="social-icons">
+                        <i class="fab fa-facebook" ></i>
+                        <i class="fab fa-instagram" ></i>
+                        <i class="fab fa-twitter" ></i>
+                    </div>
+                </div>
+            </div>
+            
+              
+                <div style="margin-left: 5px;
+                padding-top: 2px;">
+                    <span>Share</span> 
                 </div>
             </div>
             <div style="display: flex;">
@@ -86,7 +90,7 @@
             <div class="row justify-content-center">
                 <div class=" col-lg-8   mb-5 mb-lg-0">
 
-                    <article class="card  mb-4" style="height: 300px;">
+                    <article class="card  mb-4" style="height: 300px; width:700px;">
                         <!-- Display the post content -->
         
                         <!-- Display the post content -->
@@ -229,7 +233,7 @@
                     </div>
 
                     <div>
-                        <h3 class="mb-4">Leave a Reply</h3>
+                        <h3 class="mb-4">Comment</h3>
                         <form action="{{route('comment_store', $services->id)}}" method="POST">
                             @csrf
                             <div class="row">
@@ -241,11 +245,55 @@
                         </form>
                     </div>
                 </div>
-
-            
-            
+           
             </div>
         </div>
     </section>
+
+
+{{-- share model in social media start --}}
+
+    <div class="modal" id="social_media_Model" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content" style="width: 450px;
+            height: 150px; padding: 20px;
+    margin: auto;">
+                <div style="display:flex; justify-content:space-between;  padding-top: 23px;">
+                    <div>
+                        <a href="https://www.facebook.com/?_rdc=2&_rdr"><i class="fab fa-facebook" style="font-size:55px; color:#5e95c5"></i></a>
+                        <span>Facebook</span>
+                    </div>
+                    <div >
+                        <a href="https://www.facebook.com/?_rdc=2&_rdr"><i class="fab fa-instagram " style="font-size:55px" ></i></a>
+                        <span>Instagram</span>
+                    </div>
+                    <div>
+                        <a href="https://www.facebook.com/?_rdc=2&_rdr"><i class="fab fa-twitter" style="font-size:55px" ></i></a>
+                        <span>Twitter</span>
+                    </div>
+                </div>
+                
+                    
+                    
+                    
+                
+                
+                
+            </div>
+        </div>
+</div>
+
+{{-- share model in social media end --}}
+
+
+
+
+
+
+    @include('user.questions_on_single_post_view') 
     
 @endsection
+
+
+ 

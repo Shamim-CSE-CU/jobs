@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Category;
-use App\Models\Post;
+use App\Models\Services;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
 use Intervention\Image\Facades\Image;
@@ -20,11 +20,12 @@ class PostController extends Controller
     public function index()
     {
         $categories = Category::all();
-        $objPost = new Post();
-        $posts = $objPost->join('categories','categories.id', '=', 'posts.category_id')->select('posts.*', 'categories.name as category_name')->get();
+        $objService = new Services();
+        $services = $objService->join('categories','categories.id', '=', 'Services.category_id')->select('services.*', 'categories.name as category_name')->get();
         
-        return view('admin.post', compact('categories', 'posts'));
+        return view('admin.post', compact('categories', 'services'));
     }
+
 
     /**
      * Show the form for creating a new resource.

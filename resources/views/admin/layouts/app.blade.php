@@ -48,7 +48,7 @@
             <footer class="sticky-footer bg-white">
                 <div class="container my-auto">
                     <div class="copyright text-center my-auto">
-                        <span>Copyright &copy; 2023 PLDP. All rights reserved.</span>
+                        <span>Copyright &copy; 2024 HALALJOBS. All rights reserved.</span>
                     </div>
                 </div>
             </footer>

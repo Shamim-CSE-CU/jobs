@@ -13,7 +13,7 @@ class Services extends Model
     protected $fillable = [
         
         'user_id',
-        'category',
+        'category_id',
         'title',
         'description',
         'thumbnail',

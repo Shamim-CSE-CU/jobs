@@ -36,7 +36,7 @@
         
 
         
-        <li class="d-flex"><a href="{{ '/posts/category/' . $services->category }}">{{ $services->category_name }}</a></li>
+        <li class="d-flex"><a href="{{ '/posts/category/' . $services->category_id }}">{{ $services->category_name }}</a></li>
 
         
         
@@ -76,6 +76,8 @@
     </div>
 
     <div class="widget">
+
+      
         <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d233668.38703692693!2d90.27919586057241!
     3d23.780573258035947!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3755b8b087026b81%3A0x8fa563bbdd5904c2!
     2sDhaka!5e0!3m2!1sen!2sbd!4v1686306998860!5m2!1sen!2sbd" width="60" 
@@ -116,32 +118,17 @@ aria-hidden="true">
                       </div>
                       
                   </form>
-                  {{-- <div class="response-container">
-                      <h1>SMS Status</h1>
-                      <p>{{ session('success') }}</p>
-                      <p>{{ session('error') }}</p>
-                  </div> --}}
+                 
                 
                 
             </div>
         </div>
 </div>
 
+{{-- email model end  --}}
 
 
 
 
 
 
-
-
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-  <script>
-    function predict_image() {
-        
-
-            window.location.href =
-                'http://localhost/pd/transorflowModel.html';
-
-    }
-  </script>

@@ -27,7 +27,7 @@
         </div>
         
       
-        <div id="posts-container" class="swiper-container">
+        <div id="posts-container" class="">
             
                 @foreach ($services as $service)
                     <article class="card card_service mb-4" style="">

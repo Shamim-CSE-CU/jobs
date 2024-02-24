@@ -2,24 +2,23 @@
 
     <!-- Sidebar - Brand -->
     <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
-        {{-- <div class="sidebar-brand-icon rotate-n-15">
-            <i class="fas fa-laugh-wink"></i>
-            
-        </div>
-        <div class="sidebar-brand-text mx-3">PLDP</div> --}}
+        
 
-        <iconify-icon icon="bx:leaf" style="padding-left:17px; text-align:center; align-items:center; font-size:38px; color:hsl(114.06deg 81.42% 57.62%);"></iconify-icon>
-            <h6 class="logo_name" style="color: rgb(88 205 30); font-size:27px;" >PLDP</h6>
+        <iconify-icon icon="arcticons:jobstreet" style="padding-left:17px; text-align:center; align-items:center; font-size:38px; color:hsl(122deg 75.46% 55.07%);"></iconify-icon>
+            
+            <h6 class="logo_name" style="color: rgb(48 102 37); font-size:17px; font-weight:1000;" >HALAL</h6>
+            <h6 class="logo_name" style="color: rgb(143 114 114); font-size:21px; font-weight:1000" >WORKS</h6>
+
     </a>
 
     <!-- Divider -->
     <hr class="sidebar-divider my-0">
 
     <!-- Nav Item - Dashboard -->
-    <li class="nav-item @if ($page == 'Dashboard') active @endif">
+    <li class="nav-item @if ($page == 'Admin') active @endif">
         <a class="nav-link" href="{{ route('admin.dashboard')}}">
             <i class="fas fa-fw fa-tachometer-alt"></i>
-            <span>Dashboard</span></a>
+            <span>Admin</span></a>
     </li>
 
     <!-- Divider -->
@@ -32,15 +31,20 @@
 
 
     <!-- Nav Item - Tables -->
-    <li class="nav-item @if ($page == 'Disease') active @endif">
+    <li class="nav-item @if ($page == 'Category') active @endif">
         <a class="nav-link" href="{{ route('category.index')}}">
             <i class="fas fa-fw fa-chart-area"></i>
-            <span>Disease Category</span></a>
+            <span>Category</span></a>
     </li>
     <li class="nav-item @if ($page == 'Upload') active @endif">
         <a class="nav-link" href="{{ route('post.index')}}">
             <i class="fas fa-fw fa-chart-area"></i>
-            <span>Upload_Post</span></a>
+            <span>Upload_Service</span></a>
+    </li>
+    <li class="nav-item @if ($page == 'Upload') active @endif">
+        <a class="nav-link" href="{{ route('post.index')}}">
+            <i class="fas fa-fw fa-chart-area"></i>
+            <span>Upload_Project</span></a>
     </li>
     
 

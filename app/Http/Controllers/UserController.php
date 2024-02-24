@@ -36,7 +36,7 @@ class UserController extends Controller
         // ->get();
         
         $serviceObj = new Services();
-        $services = $serviceObj->join('categories', 'categories.id', '=', 'services.category')
+        $services = $serviceObj->join('categories', 'categories.id', '=', 'services.category_id')
         ->join('users','users.id', '=', 'services.user_id')
         ->select('services.*', 'categories.name as category_name','users.name as user_name','users.photo as user_photo')
         ->orderBy('services.id', 'desc')
@@ -140,7 +140,7 @@ class UserController extends Controller
         // ->first();
 
         $serviceObj = new Services();
-        $services = $serviceObj->join('categories', 'categories.id', '=', 'services.category')
+        $services = $serviceObj->join('categories', 'categories.id', '=', 'services.category_id')
         ->join('users','users.id', '=', 'services.user_id')
         ->select('services.*', 'categories.name as category_name','users.name as user_name','users.photo as user_photo')
         ->where('services.id', $id)
@@ -161,18 +161,32 @@ class UserController extends Controller
         ->where('post_comments.post_id', $id)
         ->paginate(2);
 
+
+
+        $questionObj = new Question();
+
+        $questions = $questionObj->join('categories','categories.id', '=', 'questions.category_id')
+        ->join('users','users.id', '=', 'questions.user_id')
+        ->join('services','services.id', '=', 'questions.services_id')
+        ->select('questions.*', 'categories.name as category_name', 'users.name as user_name', 'users.photo as user_photo')
+        ->where('questions.services_id', $id)
+        ->orderby('questions.id','desc')
+        ->paginate(5);
+
+        
+
         // $posts = Post::all()->where('status', 1)->sortByDesc('created_at');
         
-        return view('user.single_post_view', compact('services','postOwner','comments','categories'));
+        return view('user.single_post_view', compact('services','postOwner','comments','categories','questions'));
     }
 
     public function filter_by_category($id){
 
         $serviceObj = new Services();
-        $services = $serviceObj->join('categories', 'categories.id', '=', 'services.category')
+        $services = $serviceObj->join('categories', 'categories.id', '=', 'services.category_id')
         ->join('users','users.id', '=', 'services.user_id')
         ->select('services.*', 'categories.name as category_name','users.name as user_name','users.photo as user_photo')
-        ->where('services.category', $id)
+        ->where('services.category_id', $id)
         ->orderby('services.id','desc')
         ->get();
 
@@ -190,10 +204,10 @@ class UserController extends Controller
     public function filter_by_project($id){
 
         $serviceObj = new Services();
-        $services = $serviceObj->join('categories', 'categories.id', '=', 'services.category')
+        $services = $serviceObj->join('categories', 'categories.id', '=', 'services.category_id')
         ->join('users','users.id', '=', 'services.user_id')
         ->select('services.*', 'categories.name as category_name','users.name as user_name','users.photo as user_photo')
-        ->where('services.category', $id)
+        ->where('services.category_id', $id)
         ->orderby('services.id','desc')
         ->get();
 
@@ -239,7 +253,7 @@ class UserController extends Controller
            $data = [
             'user_id' => auth()->user()->id,
             'title' => $request->title,
-            'category' => $request->category_id,
+            'category_id' => $request->category_id,
             'description' => $request->description,
             'Location'    => $request->Location,
             'payment'    => $request->payment,
@@ -286,12 +300,15 @@ class UserController extends Controller
 
         $request->validate([
             'category_id' => 'required',
+            'services_id' => 'required',
+
             'question' => 'required',
         ]);
 
         $data = [
             'user_id' => auth()->user()->id,
             'category_id' => $request->category_id,
+            'services_id' => $request->services_id,
             'question' => $request->question,
         ];
 
@@ -328,9 +345,10 @@ class UserController extends Controller
         ->orderby('question_answers.id','desc')
         ->get();
 
+        $categories = Category::all();
        
 
-        return view('user.question_answers',compact('question','answers'));
+        return view('user.question_answers',compact('question','answers','categories'));
     }
     public function question_answer_store(Request $request, $id){
 

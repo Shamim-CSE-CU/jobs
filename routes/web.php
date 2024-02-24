@@ -112,6 +112,18 @@ Route::group(['middleware' => 'admin'], function() {
     Route::post('/admin/logout', [AuthenticatedSessionController::class, 'destroy'])->name('admin.logout');
     Route::resource('/admin/category', CategoryController::class);
 
-    Route::resource('/admin/post', PostController::class);
+    Route::resource('/admin/post', PostController::class, [
+        'only' => ['index'] // Or any other options you want to specify
+    ]);
+    Route::resource('/admin/post', PostController::class, [
+        'only' => ['store'] 
+    ]);
+    Route::put('/admin/post/{id}', [PostController::class, 'update'])->name('post.update');
+
+    Route::resource('/admin/post', PostController::class, [
+        'only' => ['destroy'] 
+    ]);
+    
+    
 
 });

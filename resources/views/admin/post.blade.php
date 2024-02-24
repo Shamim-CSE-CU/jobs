@@ -2,7 +2,7 @@
 
 @section('title')
 
-    Upload Post
+    Upload Servise
     
 @endsection
 
@@ -14,8 +14,8 @@
 
     <div class="card">
         <div class="card-header d-flex align-items-center justify-content-between">
-            <h4 class="card-title">All posts</h4>
-            <button class="btn btn-primary" data-toggle="modal" data-target="#AddpostModel">Add post</button>
+            <h4 class="card-title">All Service</h4>
+            <button class="btn btn-primary" data-toggle="modal" data-target="#AddpostModel">Add Service</button>
         </div>
         <div class="card-body">
             <table class="table table-bordered" id="dataTable">
@@ -32,24 +32,24 @@
                 </thead>
                 <tbody>
 
-                    @foreach ($posts as $key => $post)
+                    @foreach ($services as $key => $service)
                         
                     
                     
                         <tr>
                             <td>{{++$key }}</td>
-                            <td>{{$post->title }}</td>
+                            <td>{{$service->title }}</td>
                             <td>
                                 @php
-                                    echo $post->description;
+                                    echo $service->description;
                                 @endphp
                             </td>
-                            <td>{{$post->category_name }}</td>
+                            <td>{{$service->category_name }}</td>
                             <td>
-                                <img src="{{asset('post_thumbnails/' . $post->thumbnail)}}" alt="" style="width: 100px">
+                                <img src="{{asset('post_thumbnails/' . $service->thumbnail)}}" alt="" style="width: 100px">
                             </td>
                             <td>
-                                @if($post->status==1)
+                                @if($service->status==1)
                                     <span class="badge badge-success">Active</span>
                                 @else 
                                     <span class="badge badge-danger">Inactive</span>                                    
@@ -59,9 +59,9 @@
                             </td>
                             <td>
                                 <div class="d-flex">
-                                    <button class="btn btn-primary btn-sm mr-1" data-toggle="modal" data-target="{{'#Edit' . $post->id . 'postModel'}}"><i class="fas fa-edit"></i></button>
+                                    <button class="btn btn-primary btn-sm mr-1" data-toggle="modal" data-target="{{'#Edit' . $service->id . 'postModel'}}"><i class="fas fa-edit"></i></button>
                                     {{-- <button class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></button> --}}
-                                    <form action="{{ route('post.destroy', $post->id)}}" method="POST">
+                                    <form action="{{ route('post.destroy', $service->id)}}" method="POST">
                                         @csrf
                                         <input type="hidden" value="DELETE" name="_method">
                                         <button type="submit" class="delete btn btn-danger btn-sm"><i class="fa fa-trash"></i></button>
@@ -72,24 +72,24 @@
                         </tr>
 
                         <!-- post edit Modal-->
-                    <div class="modal" id="{{'Edit' . $post->id . 'postModel'}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+                    <div class="modal" id="{{'Edit' . $service->id . 'postModel'}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
                         aria-hidden="true">
                         <div class="modal-dialog modal-lg" role="document">
                             <div class="modal-content">
                                 <div class="modal-header">
-                                    <h5 class="modal-title" id="exampleModalLabel">{{ $post->title }}</h5>
+                                    <h5 class="modal-title" id="exampleModalLabel">{{ $service->title }}</h5>
                                     <button class="close" type="button" data-dismiss="modal" aria-label="Close">
                                         <span aria-hidden="true">×</span>
                                     </button>
                                 </div>
-                                <form action="{{route('post.update', $post->id)}}" method="POST" enctype="multipart/form-data">
+                                <form action="{{route('post.update', $service->id)}}" method="POST" enctype="multipart/form-data">
                                     @csrf
                                     <input type="hidden" name="_method" value="put">
                                     <div class="modal-body">
                                         
                                         <div class="form-group">
                                             <label for="post_name">Post Title</label>
-                                            <input type="text" class="form-control @error('title') is-invalid @enderror " name="title" value="{{ $post->title}}" >
+                                            <input type="text" class="form-control @error('title') is-invalid @enderror " name="title" value="{{ $service->title}}" >
                                             @error('title')
             
                                                 <span class="invalid-feedback" role="alert">
@@ -105,7 +105,7 @@
                                                 
                                                 @foreach ($categories as $category)
             
-                                                    <option value="{{ $category->id }}" @if ($category->id == $post->category_id) selected @endif>{{ $category->name}}</option>
+                                                    <option value="{{ $category->id }}" @if ($category->id == $service->category_id) selected @endif>{{ $category->name}}</option>
                                                     
                                                 @endforeach
                                             </select>
@@ -133,7 +133,7 @@
             
                                        
                                             <label for="status" class="form-check-label">
-                                                <input type="checkbox" value="1" name="status" id="status" @if ($post->status == 1) checked 
+                                                <input type="checkbox" value="1" name="status" id="status" @if ($service->status == 1) checked 
                                                     
                                                 @endif> Status
                                             </label>

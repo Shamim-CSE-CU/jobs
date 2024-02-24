@@ -50,8 +50,17 @@
 
 
 
+{{-- social-icons --}}
+ <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+
+
+
  <!-- Swiper JS -->
 <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
+
+
+
 
 <script>
     @if (Session::has('message'))
@@ -596,6 +605,48 @@ function searchService() {
 
 
 </Script>
+
+<script>
+        $(document).ready(function(){
+            $('.swiper-button-next').on('click', function(){
+                $('#posts-container').animate( {scrollLeft: '+=365'}, 800);
+            });
+
+            $('.swiper-button-prev').on('click', function(){
+                $('#posts-container').animate( {scrollLeft: '-=365'}, 800);
+            });
+        });
+
+</script>
+
+
+<script>
+    gsap.from(".card", {
+        duration: 1,
+        opacity: 0,
+        x: -50,
+        stagger: 0.5, // Add stagger for a better animation effect
+        ease: "power3.in", // Add ease for smoother animation
+        scrollTrigger: {
+            trigger: "#posts-container",
+            start: "top center", // Change the trigger point if needed
+        }
+    });
+</script>
+
+<script>
+    // Get scrolling container
+    const scrollingContainer = document.getElementById('posts-container');
+
+    // Add event listener for scroll
+    scrollingContainer.addEventListener('scroll', function(event) {
+        // Prevent vertical scrolling
+        scrollingContainer.scrollBottom = 0;
+    });
+</script>
+
+
+
 
 
 

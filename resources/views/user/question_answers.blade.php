@@ -1,14 +1,14 @@
 @extends('layouts.app')
 
 @php
-    $page= 'Ask';
+    $page= 'Answer';
 @endphp
 
 @section('mainSection')
 
 
         <!-- Answer section -->
-      <div class="py-4"></div>
+      <div style="padding-top: 100px"></div>
       <section class="section">
         <div class="container">
           <div class="row justify-content-center">
@@ -111,7 +111,7 @@
           </div>
 
           <div>
-            <h3 class="mb-4 pt-4">Leave an answer</h3>
+            <h3 class="mb-4 pt-4">Answer</h3>
 
             <form action="{{route('question_answer_store', $question->id)}}" method="POST">
 
