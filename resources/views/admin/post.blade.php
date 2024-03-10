@@ -60,7 +60,7 @@
                             <td>
                                 <div class="d-flex">
                                     <button class="btn btn-primary btn-sm mr-1" data-toggle="modal" data-target="{{'#Edit' . $service->id . 'postModel'}}"><i class="fas fa-edit"></i></button>
-                                    
+   
                                     <form action="{{ route('post.destroy', $service->id)}}" method="POST">
                                         @csrf
                                         <input type="hidden" value="DELETE" name="_method">
@@ -203,6 +203,8 @@ aria-hidden="true">
                             
                             </div>
 
+
+                            
                         
                                 <label for="status" class="form-check-label">
                                     <input type="checkbox" value="1" name="status" id="status"> Status

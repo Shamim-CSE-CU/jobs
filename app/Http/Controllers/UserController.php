@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Category;
 use App\Models\Services;
+use App\Models\Projects;
+use App\Models\Proposals;
 use App\Models\post;
 use Illuminate\Http\Request;
 use App\Models\PostComment;
@@ -43,6 +45,16 @@ class UserController extends Controller
         ->orderBy('services.id', 'desc')
         ->get();
 
+
+
+        $projectObj = new Projects();
+        $projects = $projectObj->join('categories', 'categories.id', '=', 'projects.category_id')
+        ->join('users','users.id', '=', 'projects.user_id')
+        ->select('projects.*', 'categories.name as category_name','users.name as user_name','users.photo as user_photo')
+        ->where('projects.status','1')
+        ->orderBy('projects.id', 'desc')
+        ->get();
+
  
         
         
@@ -76,7 +88,7 @@ class UserController extends Controller
                
         
         
-        return view('user.index', compact('services','categories','ratings','averageRatings','starRatingCounts'));
+        return view('user.index', compact('services','projects','categories','ratings','averageRatings','starRatingCounts'));
     }
 
     public function why_halaljobs(){
@@ -180,6 +192,64 @@ class UserController extends Controller
         
         return view('user.single_post_view', compact('services','postOwner','comments','categories','questions'));
     }
+    public function single_project_view($id){
+
+        // $postObj = new Post();
+
+        // $post = $postObj->join('categories','categories.id', '=', 'posts.category_id')
+        // ->select('posts.*', 'categories.name as category_name')
+        // ->where('posts.id', $id)
+        // ->first();
+
+        $projectObj = new Projects();
+        $projects = $projectObj->join('categories', 'categories.id', '=', 'projects.category_id')
+        ->join('users','users.id', '=', 'projects.user_id')
+        ->select('projects.*', 'categories.name as category_name','users.name as user_name','users.photo as user_photo')
+        ->where('projects.id', $id)
+        ->first();
+
+
+        $proposalObj = new Proposals();
+        $proposals = $proposalObj->join('projects', 'projects.id', '=', 'proposals.project_id')
+        ->join('users','users.id', '=', 'proposals.user_id')
+        ->select('proposals.*', 'users.name as user_name','users.photo as user_photo')
+        ->where('proposals.project_id', $id)       
+        ->get();
+
+
+
+
+        $projectOwner = $projectObj->join('users','users.id', '=', 'projects.user_id')
+        ->select('projects.*', 'users.name as user_name','users.photo as user_photo')
+        ->where('projects.id', $id)
+        ->first();
+
+        $commentObj = new PostComment();
+        $categories = Category::all();
+
+        $comments = $commentObj->join('users','users.id', '=', 'post_comments.user_id')
+        ->select('post_comments.*', 'users.name as user_name','users.photo as user_photo')
+        ->where('post_comments.post_id', $id)
+        ->paginate(2);
+
+
+
+        $questionObj = new Question();
+
+        $questions = $questionObj->join('categories','categories.id', '=', 'questions.category_id')
+        ->join('users','users.id', '=', 'questions.user_id')
+        ->join('services','services.id', '=', 'questions.services_id')
+        ->select('questions.*', 'categories.name as category_name', 'users.name as user_name', 'users.photo as user_photo')
+        ->where('questions.services_id', $id)
+        ->orderby('questions.id','desc')
+        ->paginate(5);
+
+        
+
+        // $posts = Post::all()->where('status', 1)->sortByDesc('created_at');
+        
+        return view('user.single_project_view', compact('projects','projectOwner','proposals','comments','categories','questions'));
+    }
 
     public function filter_by_category($id){
 
@@ -240,6 +310,34 @@ class UserController extends Controller
     }
 
 
+    public function project_proposal_store(Request $request){
+        
+        
+
+        $request->validate([
+            'project_id' => 'required',
+            'description'=>'required',
+            'proposed_amount' => 'required',
+            
+           ]);
+           $data = [
+            'user_id' => auth()->user()->id,
+            'project_id' => $request->project_id,
+            
+            'price'    => $request->proposed_amount,
+            'estimeted_hours'    => $request->estimeted_hours,
+            'description' => $request->description,
+            
+           ];
+
+           Proposals::create($data);
+
+           $notify = ['message' => 'Comment Added Successfully', 'alert-type' => 'success'];
+        return redirect()->back()->with($notify);
+
+    }
+
+
     public function service_create(Request $request){
 
 
@@ -273,7 +371,35 @@ class UserController extends Controller
            }
 
            Services::create($data);
-           return redirect()->back()->with('success','Post create successfully!');
+           $notify = ['message' => 'Service Added Successfully', 'alert-type' => 'success'];
+        return redirect()->back()->with($notify);
+        
+    }
+    public function project_create(Request $request){
+
+
+        $request->validate([
+            'title'=>'required',
+            'category_id' => 'required',
+            'description' => 'required',
+            'Location'    => 'required',
+            'payment'     => 'required',
+    
+           ]);
+           $data = [
+            'user_id' => auth()->user()->id,
+            'title' => $request->title,
+            'category_id' => $request->category_id,
+            'description' => $request->description,
+            'Location'    => $request->Location,
+            'payment'    => $request->payment,
+            'status' => $request->status,
+           ];
+        
+
+        Projects::create($data);
+        $notify = ['message' => 'Project Added Successfully', 'alert-type' => 'success'];
+        return redirect()->back()->with($notify);
         
     }
 

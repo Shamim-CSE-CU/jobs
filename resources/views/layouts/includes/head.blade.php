@@ -1,6 +1,6 @@
 <head>
     <meta charset="utf-8">
-    <title>JOBS | HALALJOBS</title>
+    <title>JOBS | WORKPLACE</title>
   
     <!-- mobile responsive meta -->
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -24,8 +24,8 @@
     
   
     <!--Favicon-->
-    <link rel="shortcut icon" href="{{asset('usr_assets/images/leaf.png')}}" type="image/x-icon">
-    <link rel="icon" href="{{asset('usr_assets/images/leaf.png')}}" type="image/x-icon">
+    {{-- <link rel="shortcut icon" href="{{asset('usr_assets/images/leaf.png')}}" type="image/x-icon"> --}}
+    {{-- <link rel="icon" href="{{asset('usr_assets/images/leaf.png')}}" type="image/x-icon"> --}}
 
     {{-- toastr css --}}
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css" integrity="sha512-3pIirOrwegjM6erE5gPSwkUzO+3cTjpnV9lexlNZqvupR64iZBnOOTiiLPb9M36zpMScbmUNIcHUqKD47M719g==" crossorigin="anonymous" referrerpolicy="no-referrer" />

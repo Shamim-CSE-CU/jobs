@@ -5,8 +5,8 @@
           
             <iconify-icon icon="arcticons:jobstreet" style="padding-left:17px; text-align:center; align-items:center; font-size:38px; color:hsl(122, 70%, 17%);"></iconify-icon>
             
-            <h6 class="logo_name" style="color: rgb(48 102 37); font-size:17px;" >HALAL</h6>
-            <h6 class="logo_name" style="color: rgb(143 114 114); font-size:21px;" >WORKS</h6>
+            <h6 class="logo_name" style="color: rgb(48 102 37); font-size:17px;" >WORKS</h6>
+            <h6 class="logo_name" style="color: rgb(143 114 114); font-size:21px;" >PLACE</h6>
 
         </a>
         <div class="collapse navbar-collapse text-center order-lg-2 order-3" id="navigation">

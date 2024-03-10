@@ -28,6 +28,9 @@ use App\Http\Controllers\MailController;
 
 Route::get('/', [UserController::class, 'index']);
 Route::get('/posts/{id}',[UserController::class, 'single_post_view'])->name('single_post_view');
+Route::get('/single_project_view/{id}', [UserController::class, 'single_project_view'])->name('single_project_view');
+Route::post('/project_proposal_store', [UserController::class, 'project_proposal_store'])->name('project_proposal_store');
+
 Route::get('/posts/category/{catagory_id}',[UserController::class, 'filter_by_category'])->name('filter_by_category');
 Route::get('/posts/category_project/{catagory_id}',[UserController::class, 'filter_by_project'])->name('filter_by_project');
 
@@ -45,15 +48,6 @@ Route::get('questions/answers/{id}', [UserController::class, 'question_answers']
 
 
 
-// Route::get('/posts/paginate', [UserController::class, 'paginate'])->name('posts.paginate');
-
-
-
-
-
-
-
-
 
 Route::group(['middleware' => 'auth'], function() {
     
@@ -65,12 +59,10 @@ Route::group(['middleware' => 'auth'], function() {
     
     Route::post('questions/answers/{id}/store', [UserController::class, 'question_answer_store'])->name('question_answer_store');
     Route::delete('/questions/answers/{id}/delete',[UserController::class, 'question_answer_delete'])->name('question_answer_delete');
-    // Route::get('questions/answers/{id}/like', [UserController::class, 'question_answer_like'])->name('question_answer_like');
-    // Route::get('questions/answers/{id}/unlike', [UserController::class, 'question_answer_unlike'])->name('question_answer_unlike');
+    
     Route::get('questions/answers/{id}/like', [UserController::class, 'question_answer_like'])->name('question_answer_like');
     Route::get('questions/answers/{id}/dislike', [UserController::class, 'question_answer_dislike'])->name('question_answer_dislike');
 
-    Route::get('reports/crystal/{id}', [CrystalReportController::class, 'generateReport']);
 
     Route::post('/reviews', [ReviewController::class, 'store'])->name('reviews.store');
     Route::put('/reviews/{id}', [ReviewController::class, 'update'])->name('reviews.update');
@@ -83,7 +75,7 @@ Route::group(['middleware' => 'auth'], function() {
     Route::get('/ratings/paginate', [RatingController::class, 'paginate'])->name('ratings.paginate');
     Route::get('/posts/paginate', [UserController::class, 'paginate'])->name('posts.paginate');
     Route::post('/service_create', [UserController::class, 'service_create'])->name('service_create');
-
+    Route::post('/project_create', [UserController::class, 'project_create'])->name('project_create');
     
 
 });

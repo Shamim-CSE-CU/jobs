@@ -14,8 +14,8 @@ Category
 
     <div class="card">
         <div class="card-header d-flex align-items-center justify-content-between">
-            <h4 class="card-title">All Disease </h4>
-            <button class="btn btn-primary" data-toggle="modal" data-target="#AddCategoryModel">Add Disease</button>
+            <h4 class="card-title">All Catagory </h4>
+            <button class="btn btn-primary" data-toggle="modal" data-target="#AddCategoryModel">Add Catagory</button>
         </div>
         <div class="card-body">
             <table class="table table-bordered" id="dataTable">
@@ -36,7 +36,7 @@ Category
                             <td>
                                 <div class="d-flex">
                                     <button class="btn btn-primary btn-sm mr-1" data-toggle="modal" data-target="{{'#Edit' . $category->id . 'CategoryModel'}}"><i class="fas fa-edit"></i></button>
-                                    {{-- <button class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></button> --}}
+                                    
                                     <form action="{{ route('category.destroy', $category->id)}}" method="POST">
                                         @csrf
                                         <input type="hidden" value="DELETE" name="_method">

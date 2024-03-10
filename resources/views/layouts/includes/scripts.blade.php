@@ -3,6 +3,7 @@
  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
  <script src="{{asset('usr_assets/plugins/bootstrap/bootstrap.min.js')}}"></script>
+ 
 
  <script src="{{asset('usr_assets/plugins/jQuery/jquery.min.js')}}"></script>
 

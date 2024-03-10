@@ -17,6 +17,8 @@
 
 
 <!-- Page level plugins -->
+
+{{-- tabel pagination links  }} --}}
 <script src="{{asset('assets/vendor/datatables/jquery.dataTables.min.js')}}"></script>
 <script src="{{asset('assets/vendor/datatables/dataTables.bootstrap4.min.js')}}"></script>
 

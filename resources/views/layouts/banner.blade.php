@@ -2,106 +2,76 @@
 <div class="banner text-center">
     <div class="container">
 
+              <nav>
+                <img src="{{asset('usr_assets/images/Bismillah-hir-rahman-nir-raheem.jpg')}}"/>
+                
+              </nav>
 
-
-
-
-      <nav>
-        <img src="{{asset('usr_assets/images/Bismillah-hir-rahman-nir-raheem.jpg')}}"/>
-        {{-- <h1 class="logo">হালালজবস</h1> --}}
-    </nav>
-
-    <div class="hero">
-        {{-- <img src="{{asset('usr_assets/images/potatoanimationImage.jpg')}}" alt="image" class="annimate-img"> --}}
-        
-        <div class="group">
-            <div class="group-text">
-                <h2><span class="class1">আপনার </span></h2>
-                <h2><span class="class2">দৈনন্দিন </span></h2>
-                <h2><span class="class3">প্রয়োজনে </span></h2>
-                <h2><span class="class4">সার্ভিস </span></h2>
-                <h2><span class="class4">প্রদানকারীকে </span></h2>
-                <h2><span class="class4">খুঁজে </span></h2>
-                <h2><span class="class4">নিন </span></h2>
-                <h2><span class="class4">সহজেই </span></h2>
-    
-            </div>
-    
-            <div class="group-text">
-                <h2><span class="class5">হালালজবসে যে কোনো সার্ভিস প্রদানকারীকে খুঁজে পাবেন, একইসাথে বিশেষ কোনো প্রজেক্ট সম্পন্ন করিয়ে নিতে পারবেন।</span></h2>
-                {{-- <h2><span class="class6">যে</span></h2>
-                <h2><span class="class6">Wealth</span></h2> --}}
-    
-            </div>
-            
-           <!-- search -->
-          {{-- <form class="search">
-            <input id="search-query" name="s" type="search" placeholder="কি সার্ভিস খুঁজছেন?
-            ">
-             
-          </form> --}}
-
-          
-
-          <div class="mt-4"> 
+              <div class="hero">
+                  
+                  <div class="group">
+                      <div class="group-text">
+                          <h2><span class="class1">আপনার </span></h2>
+                          <h2><span class="class2">দৈনন্দিন </span></h2>
+                          <h2><span class="class3">প্রয়োজনে </span></h2>
+                          <h2><span class="class4">সার্ভিস </span></h2>
+                          <h2><span class="class4">প্রদানকারীকে </span></h2>
+                          <h2><span class="class4">খুঁজে </span></h2>
+                          <h2><span class="class4">নিন </span></h2>
+                          <h2><span class="class4">সহজেই </span></h2>
               
+                      </div>
               
-                  <div class="row row-20 align-items-center list-fileds " style="display: flex; justify-content:center;">
-
+                      <div class="group-text">
+                          <h2><span class="class5">হালালজবসে যে কোনো সার্ভিস প্রদানকারীকে খুঁজে পাবেন, একইসাথে বিশেষ কোনো প্রজেক্ট সম্পন্ন করিয়ে নিতে পারবেন।</span></h2>
+                         
+                      </div>
+                      
+                    <div class="mt-4"> 
                     
-                        {{-- <div class="item-column col-12 col-md-5 col-lg-5  has-icon ">                      
-                          <div class="form-group-inner inner has-icon">
-                              <i class="ti-search"></i>
-                              <input type="text" name="filter-title" class="form-control " value="" id="F0SGh_title" placeholder="কি সার্ভিস খুঁজছেন?" data-listener-added_85f5cebe="true">
-                          </div>
-                        </div> --}}
-                        <div class="item-column col-12 col-md-4 col-lg-4   item-last">
-                              <div class="form-group-category tax-select-field">
-                                    <div class="form-group-inner inner ">
-                                          <select name="filter-category" class="form-control select2-hidden-accessible" id="F0SGh_category" data-placeholder="ক্যাটাগরি" tabindex="-1" aria-hidden="true">
+                            <div class="row row-20 align-items-center list-fileds " style="display: flex; justify-content:center;">
+                                  <div class="item-column col-12 col-md-4 col-lg-4   item-last">
+                                        <div class="form-group-category tax-select-field">
+                                              <div class="form-group-inner inner ">
+                                                    <select name="filter-category" class="form-control select2-hidden-accessible" id="F0SGh_category" data-placeholder="ক্যাটাগরি" tabindex="-1" aria-hidden="true">
 
-                                            <option value="">ক্যাটাগরি</option>
-                                                @foreach ($categories as $category)
-                                                <option class="level-0" value="{{$category->id}}">{{$category->name}}</option>
-                                               
-                                                @endforeach
-                                                
-                                                
-                                          </select>
+                                                      <option value="">ক্যাটাগরি</option>
+                                                          @foreach ($categories as $category)
+                                                          <option class="level-0" value="{{$category->id}}">{{$category->name}}</option>
+                                                        
+                                                          @endforeach                                          
+                                                    </select>
+                                              </div>
+                                        </div>
+                                  </div>
+                                  <div class="col-12 col-md-2 form-group-search " style="display: flex; justify-content: center;
+                                  border-radius: 20px; background-color:rgb(248, 250, 247); border:1px solid rgb(81, 175, 4); transition: background-color 0.5ms;">
+                                    <div class="d-flex align-items-center justify-content-end">
+                                      <button class="btn-submit btn w-100 btn-theme btn-inverse" style="font-size: 12px;" type="" onclick="searchService()">
+                                      সার্ভিস খুঁজুন<i class="flaticon-right-up next"></i> </button>
                                     </div>
-                              </div>
-                        </div>
-                        <div class="col-12 col-md-2 form-group-search " style="display: flex; justify-content: center;
-                        border-radius: 20px; background-color:rgb(248, 250, 247); border:1px solid rgb(81, 175, 4); transition: background-color 0.5ms;">
-                          <div class="d-flex align-items-center justify-content-end">
-                            <button class="btn-submit btn w-100 btn-theme btn-inverse" type="" onclick="searchService()">
-                            সার্ভিস খুঁজুন<i class="flaticon-right-up next"></i> </button>
-                          </div>
-                          <div class="input-group-append">
-                              <button class="btn" type="button">
-                                  <i class="fas fa-search fa-sm"></i>
-                              </button>
-                          </div>
-                        </div>
+                                    <div class="input-group-append">
+                                        <button class="btn" type="button">
+                                            <i class="fas fa-search fa-sm"></i>
+                                        </button>
+                                    </div>
+                                  </div>
+                            </div>
+                        
+                      </div>
+                    </div>
+                  <div class="row">
+                    <div class="col-lg-9 mx-auto">
+                        
+                        @foreach ($categories as $category)
+                        <li class="list-inline-item" style="border-radius: 10px; background-color:rgb(196 192 201); padding-left:5p x;padding-right:5px"></li>
+                        @endforeach
+                      </ul>
+                    </div>
                   </div>
-              
-            </div>
-          </div>
-
-
-
-        <div class="row">
-          <div class="col-lg-9 mx-auto">
-              
-              @foreach ($categories as $category)
-               <li class="list-inline-item" style="border-radius: 10px; background-color:rgb(196 192 201); padding-left:5p x;padding-right:5px"></li>
-              @endforeach
-            </ul>
-          </div>
-        </div>
-      </div>
-
+              </div>
     </div>
+
 
 
 

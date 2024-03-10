@@ -2,7 +2,7 @@
 
 
 
-<div class="vidoe swiper-container" id="posts-container" style="padding-left:70px; padding-right: 70px; padding-bottom:30px;">
+{{-- <div class="vidoe swiper-container" id="posts-container" style="padding-left:70px; padding-right: 70px; padding-bottom:30px;">
     
     <iframe class="card-video" width="380" height="230" src="https://www.youtube.com/embed/uUhZ0ZMB6yY?si=SO5qK2XkTKksFjho" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
     <iframe class="card-video" width="380" height="230" src="https://www.youtube.com/embed/Do_rjLC60y4?si=PQHqJ31C59_T1Jj7" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
@@ -12,7 +12,7 @@
     <iframe class="card-video" width="380" height="230" src="https://www.youtube.com/embed/owkVewt1y9Y?si=rngYXsCUFD2B4g4o" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
     <iframe class="card-video" width="380" height="230" src="https://www.youtube.com/embed/VL4HF2vXze8?si=LcRM9pyPY3yWUb1f" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
       
-</div>
+</div> --}}
 
 
     <svg class="footer-border" height="214" viewBox="0 0 2204 214" fill="none" xmlns="http://www.w3.org/2000/svg">

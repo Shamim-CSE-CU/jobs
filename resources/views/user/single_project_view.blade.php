@@ -13,7 +13,7 @@
     grid-template-columns: 75% 22% 3%;">
         <div style="">
             <a href="{{url('/')}}" style="display: inherit;">
-                <h6 style="color: rgb(48 102 37); font-size:17px;" >{{$services->category_name}}/Service/{{$services->title}}</h6>  
+                <h6 style="color: rgb(48 102 37); font-size:17px;" >{{$projects->category_name}}/Project/{{$projects->title}}</h6>  
             </a>
         </div>
         <div style="display: flex;justify-content:space-between">
@@ -97,8 +97,8 @@
                                             <a class="" href="#" role="button">
                                                 
                                                     {{-- @auth --}}
-                                                        @if ($services->user_photo)
-                                                            <img src="{{ asset('images/user_photos/' . $services->user_photo) }}" alt="" class="rounded-circle" style="height: 60px">
+                                                        @if ($projects->user_photo)
+                                                            <img src="{{ asset('images/user_photos/' . $projects->user_photo) }}" alt="" class="rounded-circle" style="height: 60px">
                                                         @else
                                                             <img src="{{ asset('images/user_photos/user.png') }}" alt="" class="rounded-circle" style="height: 60px">
                                                         @endif
@@ -123,24 +123,24 @@
                                          </div>
                                                
                                             
-                                                <a href="{{route('single_post_view', $services->id) }}">
-                                                <h5 class="post-subject" >{{$services->title}}</h4>
+                                                <a href="{{route('single_post_view', $projects->id) }}">
+                                                <h5 class="post-subject" >{{$projects->title}}</h4>
                                                 </a>
                                                 <h5 class="mb-3" ><a class="post-title" style="background: white;
                                                 color:rgb(142, 145, 145);
                                                 font-size:20px;
                                                     border-radius: 7px;
-                                                    padding: 5px;" >{{ $services->user_name }}</a></h5>
+                                                    padding: 5px;" >{{ $projects->user_name }}</a></h5>
                                                     <div class="grid_item_2_bottom">
                                                         <div class="grid_item_2_bottom_item_1">                     
                                                             <li class="list-inline-item" style="font-size: 13px;">
-                                                                <i class="ti-calendar" style="margin-right: 5px;"></i>{{date('d M Y', strtotime($services->created_at))}}
+                                                                <i class="ti-calendar" style="margin-right: 5px;"></i>{{date('d M Y', strtotime($projects->created_at))}}
                                                             </li>
                                                         </div>
                                                         <div class="grid_item_2_bottom_item_2">
                                                             <li class="list-inline-item">
                                                                 <div style="overflow: hidden; text-overflow: ellipsis; ">
-                                                                    <b class="" style="font-size: 10px;"><i class="fas fa-map-marker-alt location-icon" style="font-size: 16px; margin-right:5px; color:rgb(194 199 215);"></i>{{ $services->Location }}</b>
+                                                                    <b class="" style="font-size: 10px;"><i class="fas fa-map-marker-alt location-icon" style="font-size: 16px; margin-right:5px; color:rgb(194 199 215);"></i>{{ $projects->Location }}</b>
                                                                 </div>
                                                             </li>
                                                         </div>
@@ -162,12 +162,12 @@
 
                     <article style="margin-left: 15px;
                     margin-right: 15px;">
-                    <div class="post-slider mb-4">
+                    {{-- <div class="post-slider mb-4">
                         <img src="{{asset('post_thumbnails/'.$services->thumbnail)}}" class="card-img" alt="post-thumb">
-                    </div>
+                    </div> --}}
                     
-                    <h1 class="h2">{{$services->title}}</h1>
-                    <ul class="card-meta my-3 list-inline">
+                    {{-- <h1 class="h2">{{$services->title}}</h1> --}}
+                    {{-- <ul class="card-meta my-3 list-inline">
                         <li class="list-inline-item">
                             <i class="ti-calendar"></i>{{date('d M Y', strtotime($services->created_at))}}
                         </li>
@@ -175,24 +175,166 @@
                             Category:<b class="text-primary" >{{ $services->category_name }}</b>
                             
                         </li>
-                    </ul>
+                    </ul> --}}
                     <div class="content">
                         <p>
                             @php
-                            echo $services->description;
+                            echo $projects->description;
                         @endphp
                         </p>
                     </div>
                     </article>
+
+
+
+
+
+
+                    
+
+
+
+
+                    <article class="card  mb-4" style=" width:700px;">
+
+
+                        <div style="padding-top: 20px;
+                        padding-left: 20px;">
+                            <h4>Your Proposals (1)</h4>
+                        </div>
+
+
+                        @foreach ($proposals as $proposal)
+
+                        <article class="card  mb-4" style="height: 300px; width:666px;">
+
+                            <div style="width: 100%">
+                               
+                                        <div class="card-body card_body_project">
+                                            <div class="grid_item_1" >
+                                            
+                                                <a class="" href="#" role="button">
+                                                      
+                                                            @if ($proposal->user_photo)
+                                                                <img src="{{ asset('images/user_photos/' . $proposal->user_photo) }}" alt="" class="rounded-circle" style="height: 60px">
+                                                            @else
+                                                                <img src="{{ asset('images/user_photos/user.png') }}" alt="" class="rounded-circle" style="height: 60px">
+                                                            @endif
+                                                                                                                             
+                                                </a>                                       
+                                          
+                                            </div>     
+            
+                                            <div class="grid_item_2">
+    
+                                                <div class="reaction" style="position: absolute;
+                                            width:30px;
+                                            height:30px;
+                                            top: 10px; 
+                                            right: 10px; 
+                                            background-color: rgb(255, 255, 255); 
+                                            border-radius: 50%; 
+                                            border:1px solid rgb(222 231 222);
+                                            padding: 5px;">
+                                                <i class="fas fa-heart" style="color: #ccafaf;padding-left: 2px; cursor: pointer; "></i>
+                                                
+                                             </div>
+                                                   
+                                                
+                                                    <a href="{{route('single_post_view', $proposal->id) }}">
+                                                    <h5 class="post-subject" >{{$proposal->description}}</h4>
+                                                    </a>
+                                                    <h5 class="mb-3" ><a class="post-title" style="background: white;
+                                                    color:rgb(142, 145, 145);
+                                                    font-size:20px;
+                                                        border-radius: 7px;
+                                                        padding: 5px;" >{{ $proposal->user_name }}</a></h5>
+                                                        <div class="grid_item_2_bottom">
+                                                            <div class="grid_item_2_bottom_item_1">                     
+                                                                <li class="list-inline-item" style="font-size: 13px;">
+                                                                    <i class="ti-calendar" style="margin-right: 5px;"></i>{{date('d M Y', strtotime($proposal->created_at))}}
+                                                                </li>
+                                                            </div>
+                                                            <div class="grid_item_2_bottom_item_2">
+                                                                <li class="list-inline-item">
+                                                                    <div style="overflow: hidden; text-overflow: ellipsis; ">
+                                                                        <b class="" style="font-size: 10px;"><i class="fas fa-map-marker-alt location-icon" style="font-size: 16px; margin-right:5px; color:rgb(194 199 215);"></i>{{ $projects->Location }}</b>
+                                                                    </div>
+                                                                </li>
+                                                            </div>
+                                                            <div class="grid_item_2_bottom_item_3">
+                                                                <li class="list-inline-item">
+                                                                    <div class="project-proposals-count with-icon"><i class="flaticon-rocket-1"></i> 5 Proposals</div>
+                                                                </li>
+                                                            </div>
+                                                        </div>
+                                                    
+                                            </div>
+                                                                                                      
+                                        </div>
+                            </div>
+
+                            
+            
+                            
+                        </article>
+                        @endforeach
+
+
+                        <div style="padding-top: 20px;
+                        padding-left: 20px;">
+                            <h4>Send Your Proposal</h4>
+                        </div>
+
+
+                        
+
+
+
+                        <div style="padding: 20px">
+                            <form id="project-proposal-form-11002" action="{{route('project_proposal_store')}}" method="POST" enctype="multipart/form-data">
+                                @csrf
+                                <div class="row">
+                                    <div class="col-12 col-sm-6">
+                                        <div class="form-group">
+                                            <label for="proposed-amount-id">Your Total Price</label>
+                                            <input id="proposed-amount-id" autocomplete="off" min="0" type="number" name="proposed_amount" class="form-control" placeholder="Price" required="">
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-sm-6">
+                                        <div class="form-group">
+                                            <label for="estimated-time-id">Estimated time</label>
+                                            <input  autocomplete="off" min="0" type="number" name="estimeted_hours" class="form-control" placeholder="Price" required="">
+                            
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="description-id">Cover Letter</label>
+                                    <textarea id="description-id" class="form-control" name="description" required="" data-listener-added_929e5158="true" spellcheck="false"></textarea>
+                                </div>
+                                <input type="hidden" name="project_id" value="{{$projects->id}}">
+                        
+                                <button type="submit" class="btn btn-secondary" style="background-color: rgb(118, 118, 204)">Submit a Proposal</button>
+                            </form>
+                        </div>
+
+
+
+        
+                        
+                    </article>
+
+
 
                 
                     
                 </div>
 
                  {{-- rightbar  --}}
-            @include('layouts.rightbar')
+            @include('layouts.project_rightbar')
 
-                <div class="col-lg-9 col-md-12">
+                {{-- <div class="col-lg-9 col-md-12">
                     <div class="mb-5 border-top mt-4 pt-5">
                         <h3 class="mb-4">Comments</h3>
 
@@ -217,7 +359,7 @@
                                     
                                     <small class="text-black-800 mr-3 font-weight-600">{{ date('d M Y', strtotime($comment->created_at))}}
                                     </small>
-                                    {{-- <a class="text-primary font-weight-600" href="#!">Reply</a> --}}
+                                    
                                 </div>
                             </div>
                             
@@ -239,7 +381,7 @@
                             <button class="btn btn-primary" type="submit">Comment Now</button>
                         </form>
                     </div>
-                </div>
+                </div> --}}
            
             </div>
         </div>
@@ -286,7 +428,7 @@ aria-hidden="true">
 
 
 
-    @include('user.questions_on_single_post_view') 
+    {{-- @include('user.questions_on_single_post_view')  --}}
     
 @endsection
 
